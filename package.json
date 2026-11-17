@@ -1,0 +1,15 @@
+{
+  "name": "slow-shine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Мой зимний набор — Slow Shine by Nataly",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

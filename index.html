@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Мой зимний набор — Slow Shine by Nataly. Личный опыт, зимние ритуалы и забота о себе.">
+
+<title>Мой зимний набор</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,400&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow column like a personal letter - short hero, then one card per product (why I take it · how · what science allows us to say), honest note, consultation CTA. Brand tokens from Slow Shine design system. */
+:root{
+  --bg:#F5F0E8; --surface:#FFFDF9; --sunk:#EDE6DA;
+  --ink:#2C1810; --soft:#6E5C51; --faint:#9A897D;
+  --sage:#7D9B76; --sage-ink:#4F6B49; --on-sage:#FFFFFF;
+  --clay:#C4856A; --clay-ink:#9A5A40; --winter:#5F7A8C;
+  --line:rgba(44,24,16,.12);
+  --f-display:'Playfair Display',Georgia,'Times New Roman',serif;
+  --f-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1A1512; --surface:#251E19; --sunk:#201A16; --ink:#F0E9E1; --soft:#B5A396; --faint:#86766A;
+  --sage:#8DAD86; --sage-ink:#A9C6A2; --on-sage:#1A1512; --clay:#D29880; --clay-ink:#E0AE98; --winter:#9DB6C6;
+  --line:rgba(240,233,225,.12); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1A1512; --surface:#251E19; --sunk:#201A16; --ink:#F0E9E1; --soft:#B5A396; --faint:#86766A;
+  --sage:#8DAD86; --sage-ink:#A9C6A2; --on-sage:#1A1512; --clay:#D29880; --clay-ink:#E0AE98; --winter:#9DB6C6;
+  --line:rgba(240,233,225,.12); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--f-body);margin:0}
+a{color:var(--sage-ink)}
+:focus-visible{outline:2px solid var(--clay);outline-offset:2px;border-radius:6px}
+.wrap{max-width:720px;margin:0 auto;padding-block:20px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:28px}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--f-display);font-style:italic;font-size:17px}
+.other{margin-left:auto;font-size:13px;font-weight:600}
+header.hero{display:flex;flex-direction:column;gap:10px;padding-top:12px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--winter);font-weight:600}
+.eyebrow:empty{display:none}
+h1{font-family:var(--f-display);font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.05;margin:0;text-wrap:balance}
+h1 em{font-style:italic;color:var(--clay-ink)}
+.lede{font-size:18px;color:var(--soft);margin:0;max-width:60ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:var(--surface)}
+.list{display:flex;flex-direction:column;gap:16px}
+.prod{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;grid-template-columns:132px 1fr;gap:12px 20px;align-items:start}
+.prod.noimg{grid-template-columns:1fr}
+.prod .pic{grid-row:1/span 5;display:flex;align-items:flex-start;justify-content:center}
+.prod .pic img{max-width:100%;max-height:190px;height:auto;width:auto;filter:drop-shadow(0 8px 14px rgba(44,24,16,.16))}
+.prod>*:not(.pic){min-width:0}
+@media (max-width:520px){.prod{grid-template-columns:84px 1fr;padding:16px;gap:10px 14px}.prod .pic img{max-height:130px}.prod .pic{grid-row:1/span 2}.prod .rows,.prod .science,.prod .btn{grid-column:1/-1}}
+.opts{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.optl{grid-column:1/-1;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.opt{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px 10px;text-decoration:none;color:var(--ink);background:var(--bg)}
+a.opt:hover{border-color:var(--sage)}
+.opt img{width:44px;height:58px;object-fit:contain;flex:none}
+.opt .noimg{width:44px;height:58px;flex:none;border-radius:8px;background:var(--sunk)}
+.opt span{min-width:0;font-size:14px}.opt b{font-weight:600;display:block}.opt small{color:var(--soft);font-size:12.5px;display:block;line-height:1.35}
+.ptabs{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1.5px solid var(--sage-ink);background:transparent;color:var(--sage-ink);border-radius:999px;padding:7px 18px;font:600 14px var(--f-body);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--sage-ink);color:var(--on-sage)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#1A1512}}
+:root[data-theme="dark"] .chip[aria-pressed="true"]{color:#1A1512}
+.pairs[hidden]{display:none}
+.pairs{display:flex;flex-direction:column;gap:14px}
+.pcard2{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.ptop{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:start}
+.ptop img{width:96px;height:110px;object-fit:contain}
+.ptop div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.ptop b{font-family:var(--f-display);font-weight:500;font-size:20px}
+.ptop p{margin:0;font-size:14px;color:var(--soft)}
+.eyebrow2{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--clay-ink);font-weight:600}
+.plus{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.xrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.xitem{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px;text-decoration:none;color:var(--ink);background:#fff}
+.xitem:hover{border-color:var(--sage)}
+.xitem img{width:52px;height:52px;object-fit:contain;flex:none}
+.xitem span{font-size:13px;line-height:1.3;min-width:0;color:#2C1810}.xitem small{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9A897D}
+.gc-wrap{display:grid;grid-template-columns:1fr;gap:12px;max-width:440px}
+.gc-wrap h3{font-family:var(--f-display);font-weight:500;font-size:22px;margin:0}
+.gc-wrap p.gcnote{margin:0;font-size:14px;color:var(--soft)}
+.gc-wrap .card{background:radial-gradient(circle at 85% 15%,rgba(224,174,152,.35),transparent 45%),linear-gradient(135deg,#55744E 0%,#2F4430 100%);color:#F5F0E8;aspect-ratio:148/105;width:100%;border-radius:18px;padding:clamp(18px,5vw,40px);display:grid;grid-template-rows:auto 1fr auto;gap:10px;position:relative;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact;box-shadow:0 18px 40px rgba(47,68,48,.25)}
+.gc-wrap .card::before{content:"";position:absolute;inset:10px;border:1px solid rgba(245,240,232,.35);border-radius:12px;pointer-events:none}
+.gc-wrap .card::after{content:"✳";position:absolute;right:clamp(16px,4vw,34px);top:clamp(10px,3vw,24px);font-size:clamp(40px,10vw,80px);color:rgba(245,240,232,.18);line-height:1}
+.gc-wrap .card .brand{font-family:var(--f-display);font-style:italic;font-size:clamp(14px,3vw,18px);color:#F2C9B5;position:relative}
+.gc-wrap .card .mid{display:flex;flex-direction:column;justify-content:center;gap:clamp(4px,1.5vw,10px);position:relative}
+.gc-wrap .card .kicker{font-size:clamp(10px,2vw,12px);letter-spacing:.16em;text-transform:uppercase;color:#D6E4D0;font-weight:600}
+.gc-wrap .card h1{font-family:var(--f-display);font-weight:500;font-size:clamp(22px,6vw,34px);line-height:1.05;margin:0;color:#FFFDF9}
+.gc-wrap .card h1 em{color:#F2C9B5}
+.gc-wrap .card .desc{margin:0;font-size:clamp(11px,2.6vw,13.5px);color:rgba(245,240,232,.85);max-width:46ch}
+.gc-wrap .card .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:clamp(10px,2.2vw,13px);color:rgba(245,240,232,.8);border-top:1px dashed rgba(245,240,232,.35);padding-top:8px;position:relative}
+.gc-wrap .card .foot b{color:#FFFDF9;font-weight:600}
+.gcform{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gcform label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--soft);min-width:0}
+.gcform .wide,.gcform .btn{grid-column:1/-1}
+.gcform input{font:inherit;font-size:15px;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);min-width:0}
+.gcform .btn{border:0;cursor:pointer;justify-self:stretch;justify-content:center;font-size:15px;padding:11px 16px}
+.gcmsg{width:100%;min-height:110px;font:inherit;font-size:14px;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+display:flex;flex-direction:column;gap:14px}
+.gifts h2,.shelf h2{font-family:var(--f-display);font-weight:500;font-size:28px;margin:0}
+.gifts>p,.shelf>p{margin:0;color:var(--soft)}
+.ggrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.gcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.gcard img{height:150px;width:auto;max-width:100%;object-fit:contain;align-self:center;filter:drop-shadow(0 8px 14px rgba(44,24,16,.16))}
+.gcard b{font-family:var(--f-display);font-weight:500;font-size:19px}
+.gcard p b{font-family:inherit;font-size:inherit;font-weight:600;color:var(--ink)}
+.gcard p{margin:0;font-size:14px;color:var(--soft)}
+.price{font-weight:600;font-size:15px}.price s{color:var(--faint);font-weight:400;margin-left:6px}
+.gcard .btn{margin-top:auto}
+.ideas{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.note{font-size:13.5px;color:var(--soft);background:var(--sunk);border-radius:12px;padding:12px 14px;margin:0}
+.shelf{display:flex;flex-direction:column;gap:12px}
+.srow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.sitem{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px}
+a.sitem{text-decoration:none;color:var(--ink)}a.sitem:hover{border-color:var(--sage)}
+.sitem img{width:64px;height:64px;object-fit:contain}
+.arts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:4px 0}
+.arts figure{margin:0;display:flex;flex-direction:column;gap:6px}
+.arts img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;display:block}
+.arts figcaption{font-size:12px;color:var(--faint);line-height:1.35}
+@media (max-width:520px){.arts{grid-template-columns:1fr 1fr}.arts figure:first-child{grid-column:1/-1}.arts figure:first-child img{aspect-ratio:16/9}}
+.sitem span{font-size:14px;font-weight:500;min-width:0;overflow-wrap:anywhere}.sitem small{display:block;color:var(--faint);font-weight:400;font-size:12.5px}
+.prod .head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.prod h2{font-family:var(--f-display);font-weight:500;font-size:24px;margin:0}
+.prod .when{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--sage-ink);background:color-mix(in srgb,var(--sage) 16%,transparent);border-radius:999px;padding:3px 10px}
+.why{font-family:var(--f-display);font-style:italic;font-size:19px;line-height:1.45;margin:0;color:var(--ink)}
+.why::before{content:"- ";color:var(--clay)}
+.rows{display:grid;grid-template-columns:110px 1fr;gap:6px 14px;font-size:14.5px;margin:0}
+.rows dt{color:var(--faint);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding-top:3px}
+.rows dd{margin:0;min-width:0}
+@media (max-width:480px){.rows{grid-template-columns:1fr}.rows dt{padding-top:6px}}
+.science{font-size:14px;color:var(--soft);border-top:1px dashed var(--line);padding-top:10px;margin:0}
+.science b{color:var(--ink);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--sage-ink);color:var(--on-sage);text-decoration:none;font-weight:600;font-size:14px;border-radius:999px;padding:8px 16px;justify-self:start}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn:not(.ghost):not(.soon){color:#1A1512}}
+:root[data-theme="dark"] .btn:not(.ghost):not(.soon){color:#1A1512}
+.btns{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px}
+.btn.ghost{background:transparent;color:var(--sage-ink);border:1.5px solid var(--sage-ink)}
+.btn.soon{background:transparent;color:var(--soft);border:1.5px dashed var(--line);pointer-events:none}
+.honest{background:var(--sunk);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.honest h2,.cta h2,.care h2{font-family:var(--f-display);font-weight:500;font-size:24px;margin:0}
+.honest p,.care p{margin:0}
+.care{border-left:3px solid var(--winter);padding:4px 0 4px 18px;display:flex;flex-direction:column;gap:8px}
+.care ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.deep{display:flex;flex-direction:column;gap:10px;padding:8px 0}
+.deep h2{font-family:var(--f-display);font-weight:500;font-size:24px;margin:0}
+.deep blockquote{margin:0;font-family:var(--f-display);font-style:italic;font-size:21px;line-height:1.4;color:var(--clay-ink);border-left:3px solid var(--clay);padding-left:16px}
+.deep cite{display:block;font-family:var(--f-body);font-style:normal;font-size:12px;color:var(--faint);margin-top:6px}
+.deep p{margin:0}
+.book{margin:0;display:flex;flex-direction:column;gap:8px}
+.book img{width:100%;height:auto;border-radius:16px;display:block}
+.book figcaption{font-size:13px;color:var(--faint)}
+.deep ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.deep .q{background:var(--sunk);border-radius:12px;padding:14px 16px;font-weight:500}
+.cta{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.code{font-family:var(--f-display);font-size:30px;letter-spacing:.08em;color:var(--clay-ink)}
+.contacts{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:15px}
+.contacts span{color:var(--faint);font-size:12px;display:block;letter-spacing:.06em;text-transform:uppercase}
+.fine{font-size:12.5px;color:var(--faint);margin:0}
+@media (prefers-reduced-motion:no-preference){.prod{transition:transform .2s ease}.prod:hover{transform:translateY(-2px)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span class="brand">Slow Shine by Nataly</span></div>
+  <header class="hero"><span class="eyebrow" id="eyebrow"></span><h1 id="h1"></h1><p class="lede" id="lede"></p><div class="chips" id="chips"></div></header>
+  <div class="list" id="list"></div>
+  <section class="honest" id="honest"></section>
+  <section class="gifts" id="gifts"></section>
+  <section class="gifts" id="pairs"></section>
+  <section class="gc-wrap" id="giftcard"></section>
+  <section class="shelf" id="shelf"></section>
+  <section class="care" id="care"></section>
+  <figure class="book"><img src="img/book.jpg" alt="" width="1200" height="1544" loading="lazy"><figcaption id="bookcap"></figcaption></figure>
+  <section class="deep" id="beauty"></section>
+  <section class="deep" id="deep"></section>
+  <section class="deep" id="people"></section>
+  <section class="cta" id="cta"></section>
+  <p class="fine" id="fine"></p>
+</div>
+<script>
+const t={"lang": "ru", "title": "Мой зимний набор", "eyebrow": "", "h1": "Мой <em>зимний</em> набор", "lede": "Что я пью, когда солнца мало, тренировки продолжаются, а голове нужна опора. И главное - зачем.", "lbl": {"how": "Как", "shop": "Купить", "soon": "Ссылка скоро", "choose": "На выбор"}, "items": [{"name": "Магний", "when": "Вечером", "why": "Для сна и чтобы мышцы расслаблялись после силовых. Пью после растяжки, перед сном - это уже мой маленький ритуал.", "how": "Вечером после растяжки, с водой. Не дублирую магний из других комплексов.", "sci": "Магний способствует нормальной работе нервной системы и мышц и снижению усталости и утомляемости.", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/500629/?referral=3024922", "chip": "Магний", "img": "org_magnesium.webp", "alt": "Органический магний Essential Minerals", "btn": "Купить отдельно", "set_url": "https://ru.siberianhealth.com/ru/shop/catalog/product/501865/?referral=3024922", "set_btn": "В наборе «Гармония и баланс» · 1035 ₽"}, {"name": "Витамин D3", "when": "С едой", "why": "Сейчас пью для профилактики, маленькую дозировку - одну каплю. Чтобы поддерживать, пока солнца мало.", "how": "1 капля (500 МЕ) с едой, где есть полезные жиры: рыба, авокадо, орехи, яйца - D жирорастворимый. Дозу лучше подбирать по анализу.", "sci": "Витамин D способствует нормальной работе иммунной системы и поддержанию нормального состояния костей и мышц.", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/501644/?referral=3024922", "img": "d3max.webp", "alt": "Витамин D3 Max, капли", "chip": "D3", "btn": "Купить отдельно", "set_url": "https://ru.siberianhealth.com/ru/shop/catalog/product/501866/?referral=3024922", "set_btn": "В наборе «Иммунитет и энергия» · 1780 ₽"}, {"name": "Омега-3", "when": "Курс 3 месяца", "why": "Для мозга и зрения. Пью курсами по 3 месяца и выбираю омегу под задачу.", "how": "С едой, по этикетке выбранного продукта, курс 3 месяца.", "sci": "ДГК способствует поддержанию нормальной работы мозга и нормального зрения (при 250 мг ДГК в день). Рыба с ферм часто бедна омегой - поэтому не надеюсь только на неё.", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/500661/?referral=3024922", "pname": "Северная омега-3", "img": "nordic_omega.webp", "alt": "Омега-3", "options": [{"img": "nordic_omega.webp", "name": "Северная омега-3", "note": "классика на каждый день", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/500661/?referral=3024922"}, {"img": "xxl_omega.webp", "name": "XXL Omega-3 Keforma", "note": "2255 мг омега-3, из них 518 мг ДГК: если много тренировок"}, {"img": "vegan_omega.webp", "name": "Totally Vegan Omega-3", "note": "растительная, Expert Line: если не едите рыбу"}, {"img": "vitamama_omega.webp", "name": "Vitamama Омега-3 ДГК", "note": "375 мг ДГК: детская линия, дозировка по возрасту на этикетке"}]}, {"name": "Коллаген", "when": "Утром натощак", "why": "Всегда пью курсами по 3 месяца, в саше - удобно взять с собой.", "how": "Сразу как проснулась, до еды: 1 саше в стакане воды. Завтрак и остальные добавки - минимум через 30 минут. Курс 3 месяца.", "sci": "В трипептидах коллагена есть витамин C - он способствует нормальному образованию коллагена для нормального состояния кожи.", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/501729/?referral=3024922", "pname": "Чистый рыбный коллаген", "img": "collagen_tripeptides.webp", "alt": "Трипептиды коллагена", "options": [{"img": "collagen_tripeptides.webp", "name": "Трипептиды коллагена", "note": "с витамином C и биотином, 14 стиков · в наборе «Молодость и сияние»", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/432677/?referral=3024922"}, {"img": "marine_collagen.webp", "name": "Marine Collagen Peptides", "note": "Fitness Catalyst: морской коллаген, ваниль и черника", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/501181/?referral=3024922"}]}, {"name": "Белок", "when": "Каждый день", "why": "Добавляю всегда. Кетолоджи - порошок с растительным белком, МСТ и пребиотиками. Кладу его в кашу, в выпечку, даже в брауни и вафли.", "how": "В банке 12 порций, но я не пью его как полноценный коктейль. Добавляю одну-две мерные ложечки в кашу или в тесто для вафель и брауни, поэтому одной банки мне хватает надолго, больше чем на месяц. Плюс белок в каждом приёме пищи: яйца, рыба, курица, творог.", "sci": "Белок способствует росту и сохранению мышечной массы.", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/501838/?referral=3024922", "img": "ketology_ru.webp", "alt": "Кетолоджи", "btn": "Купить Кетолоджи"}], "honest": "<h2>Честно</h2><p>Добавки - не волшебная таблетка. Иммунитет не «взлетит», и ни от чего они не вылечат. Это поддержка рядом с главным: сном, едой, движением, светом и отдыхом.</p><p>Поэтому на консультациях я помогаю выстроить день так, чтобы каждая привычка вписывалась в него естественно и не отнимала много времени - мозгу так легче привыкнуть. Сон, питание, уход за кожей, добавки, тренировки.</p>", "gifts": {"h2": "Зимний набор - в подарок", "intro": "В ноябрьском каталоге Siberian Wellness есть наборы, где уже лежат продукты из моего набора. Цены по каталогу действуют до 30 ноября.", "cards": [{"name": "Иммунитет и энергия", "img": "set_immuno.webp", "price": "1780 ₽", "text": "Внутри мой Витамин D3 Макс и Новомин - витамины A, E и C. Тому, кто зимой мёрзнет и устаёт.", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/501866/?referral=3024922", "btn": "Смотреть набор"}, {"name": "Гармония и баланс", "img": "set_harmony.webp", "price": "1035 ₽", "old": "1220 ₽", "text": "Мой органический магний и глицин. Тому, у кого много стресса и мало отдыха.", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/501865/?referral=3024922", "btn": "Смотреть набор"}, {"name": "Молодость и сияние", "img": "set_youth.webp", "price": "2720 ₽", "old": "3200 ₽", "text": "Трипептиды коллагена с витамином C и биотином плюс сыворотка с витамином C. Подруге, которая любит уход.", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/432677/?referral=3024922", "btn": "Смотреть набор"}], "ideas": ["<b>Открытка-памятка к подарку.</b> Положите в пакет карточку: что это, когда пить и с чем, сколько длится курс. Напишите мне, что и кому дарите, - подскажу, что на ней написать.", "<b>Консультация в подарок · €20.</b> Сертификат на 30-минутную вводную онлайн-консультацию про сон, питание, уход и добавки. Напишите мне кодовое слово ПОДАРОК, и я пришлю открытку, которую можно распечатать или переслать.", "<b>Подарок без коробки.</b> Новогодний вечер с «оркестром за ужином» и танцами под Dancing Queen."], "note": "Если дарите добавки, спросите, не беременна ли человек и не принимает ли лекарства. Детям - только детские формы. БАД, не является лекарственным средством."}, "gc": {"h3": "Сертификат на консультацию", "kicker": "Сертификат · консультация 30 минут", "h1": "Время <em>для себя</em>", "desc": "Личная онлайн-консультация на 30 минут: сон, питание, уход и добавки.", "foot": "€20 · 6 месяцев", "forL": "Для", "fromL": "от", "f1": "Кому дарите", "f2": "От кого", "f3": "Ваш контакт", "f3ph": "Telegram, Instagram или телефон", "btn": "Заказать сертификат", "dm": "https://t.me/natamovement", "msg": "Здравствуйте! Хочу подарочный сертификат на консультацию (€20).\nДля: {to}\nОт: {from}\nМой контакт: {contact}", "note": "Впишите имена, и карта сразу заполнится. Нажмите кнопку: заявка скопируется, а в новой вкладке откроется мой Telegram, останется вставить и отправить. Способ оплаты обсудим в переписке, а после оплаты я пришлю готовую открытку в PDF.", "done": "Готово: заявка скопирована. Вставьте её в открывшийся чат в Telegram и отправьте. Договоримся об оплате, и я пришлю открытку в PDF.", "manual": "Скопируйте текст заявки ниже и отправьте мне в Telegram @natamovement."}, "shelf": {"h2": "Ещё на моей полке", "intro": "Эти продукты подходят не всем, поэтому их нет в основном наборе. Напишите - расскажу, кому они подходят и с чем их нельзя совмещать.", "items": [{"img": "psychobiotic.webp", "name": "Психобиотик", "note": "ось «кишечник - мозг» →", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/501463/?referral=3024922"}, {"img": "hair_nails.webp", "name": "Hair & Nails", "note": "для волос и ногтей →", "url": "https://ru.siberianhealth.com/ru/shop/catalog/product/501901/?referral=3024922"}]}, "care": "<h2>Голова тоже зимует</h2><p>В сезон, когда мало солнца, особенно важно замечать своё ментальное состояние.</p><ul><li>Свет утром: 15–20 минут на улице в первые часы.</li><li>Движение и время на природе - даже короткая прогулка.</li><li>Люди, с которыми легко, - встречи и звонки.</li><li>Если подавленность держится больше двух недель - к врачу или психотерапевту. Это забота о себе.</li></ul>", "bookcap": "Что я читаю этой зимой: The School of Life, «Mind & Body» - упражнения для тела ради головы и для головы ради тела.", "beauty": "<h2>Зеркало глазами доброго художника</h2><p>В книге The School of Life «Mind &amp; Body» есть история про художника Уистлера. В 1871 году он написал портрет своей мамы. В зеркале она, наверное, видела усталое лицо и нахмуренные брови. А сын увидел спокойный взгляд, мягкость и умение слушать. Хороший портрет не льстит - он говорит более добрую правду.</p><p>И красота меняется: в XVIII веке первую седину встречали с гордостью. Поэтому я ухаживаю за кожей и пью коллаген не потому, что со мной что-то не так, а из уважения к себе. Медленно и бережно, без борьбы с возрастом.</p><p class=\"q\">Попробуйте вечером, когда наносите крем: найдите в своём лице три тёплые детали вместо трёх недостатков.</p>", "deep": "<h2>Жить глубже, а не только дольше</h2><blockquote>«Нам не хватает не времени. Нам не хватает тепла, открытости, доброты и терпимости».<cite>The School of Life, «Mind &amp; Body», глава «Mortality»</cite></blockquote><p>Зимой я читаю эту книгу. В ней герой «Леопарда» Лампедузы в конце жизни считает, сколько дней он прожил по-настоящему, - и набирается год-два. Добавки, сон и тренировки нужны мне не ради лишних лет, а чтобы у дней хватало сил на главное: на людей, любопытство и тихие моменты.</p><p>Мой любимый такой момент - раннее утро, тишина и небо за окном. Попробуйте зимой «подняться над городом»: перед сном представьте, как поднимаетесь над домом, районом, страной, планетой. С такой высоты многие тревоги теряют срочность.</p><p class=\"q\">Какие три момента этого года вы бы назвали по-настоящему прожитыми? Напишите мне - мне правда интересно.</p>", "people": "<h2>Люди - тоже витамин</h2><p>Зимой мы прячемся по домам, а мозгу нужны люди не меньше, чем свет и магний. В той же книге есть семь «упражнений на общение». Мои любимые на зимние вечера:</p><ul><li><b>Танец без умения.</b> Включить Dancing Queen и танцевать на кухне. Выглядеть глупо - не риск, а смысл.</li><li><b>Оркестр за ужином.</b> Один тихо стучит по столу, другой вилкой по бокалу, третий напевает «на-на-на». Через минуту сердиться уже трудно.</li><li><b>Разговор лёжа.</b> После ужина лечь на пледы, приглушить свет и по очереди продолжить фразу «Больше всего я бы хотела…». Когда не смотришь в глаза, говорить честнее.</li><li><b>Рука другого.</b> С согласия минуту держать руку близкого и рассматривать её: линии, вены, ногти. Эти руки вытирали слёзы, держали руку мамы, что-то строили. Художники давно знали, что руки говорят о человеке больше лица.</li></ul><div class=\"arts\"><figure><img src=\"img/art_adam.webp\" alt=\"Микеланджело, «Сотворение Адама», ок. 1508–1512\" loading=\"lazy\"><figcaption>Микеланджело, «Сотворение Адама», ок. 1508–1512</figcaption></figure><figure><img src=\"img/art_giotto.webp\" alt=\"Джотто, «Не прикасайся ко мне», ок. 1305\" loading=\"lazy\"><figcaption>Джотто, «Не прикасайся ко мне», ок. 1305</figcaption></figure><figure><img src=\"img/art_degas.webp\" alt=\"Эдгар Дега, «Этюд рук», ок. 1860\" loading=\"lazy\"><figcaption>Эдгар Дега, «Этюд рук», ок. 1860</figcaption></figure></div><p class=\"q\">Одна живая встреча в неделю - моя зимняя «добавка» без капсулы. С кем вы встретитесь на этой неделе?</p>", "cta": "<h2>Соберём ваш набор?</h2><p>Напишите мне кодовое слово - подскажу, с чего начать именно вам, или запишу на консультацию.</p><div class=\"code\">ЗИМА</div><div class=\"contacts\"><div><span>Личные сообщения</span>@natmovement</div><div><span>Канал</span>t.me/nata_chir</div></div>", "fine": "Это мой личный опыт, а не назначение. БАД. Не является лекарственным средством. При беременности, кормлении, хронических заболеваниях и приёме лекарств - сначала посоветуйтесь с врачом. Цены - каталог Siberian Wellness Россия, ноябрь 2026, действуют до 30.11.2026, кроме северных городов. Ссылки с кодом 3024922. © 2026 Slow Shine by Nataly."};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=id=>document.getElementById(id);
+document.documentElement.lang=t.lang;
+$('eyebrow').textContent=t.eyebrow;$('h1').innerHTML=t.h1;$('lede').textContent=t.lede;
+$('chips').innerHTML=t.items.map(i=>'<span>'+esc(i.chip||i.name)+'</span>').join('');
+$('list').innerHTML=t.items.map(it=>
+ '<article class="prod'+(it.img?'':' noimg')+'">'+(it.img?'<div class="pic"><img src="img/'+it.img+'" alt="'+esc(it.alt||it.name)+'" loading="lazy"></div>':'')+
+ '<div class="head"><h2>'+esc(it.name)+'</h2><span class="when">'+esc(it.when)+'</span></div>'+
+ '<p class="why">'+esc(it.why)+'</p>'+
+ '<dl class="rows"><dt>'+esc(t.lbl.how)+'</dt><dd>'+esc(it.how)+'</dd></dl>'+
+ '<p class="science">'+esc(it.sci)+'</p>'+
+ (it.options?'<div class="opts"><span class="optl">'+esc(t.lbl.choose)+'</span>'+it.options.map(o=>'<'+(o.url?'a href="'+esc(o.url)+'" target="_blank" rel="noopener"':'div')+' class="opt">'+(o.img?'<img src="img/'+o.img+'" alt="" loading="lazy">':'<i class="noimg"></i>')+'<span><b>'+esc(o.name)+'</b><small>'+esc(o.note)+'</small></span></'+(o.url?'a':'div')+'>').join('')+'</div>':'')+
+ (it.options?'':'<div class="btns">'+(it.url?'<a class="btn" href="'+esc(it.url)+'" target="_blank" rel="noopener">'+esc(it.btn||t.lbl.shop)+' →</a>':'<span class="btn soon">'+esc(it.btn||t.lbl.soon)+'</span>')+(it.set_url?'<a class="btn ghost" href="'+esc(it.set_url)+'" target="_blank" rel="noopener">'+esc(it.set_btn)+' →</a>':'')+'</div>')+'</article>').join('');
+const g=t.gifts;
+$('gifts').innerHTML='<h2>'+g.h2+'</h2><p>'+g.intro+'</p>'+
+ (g.cards.length?'<div class="ggrid">'+g.cards.map(c=>'<div class="gcard">'+(c.img?'<img src="img/'+c.img+'" alt="" loading="lazy">':'')+'<b>'+esc(c.name)+'</b>'+(c.price?'<span class="price">'+esc(c.price)+(c.old?'<s>'+esc(c.old)+'</s>':'')+'</span>':'')+'<p>'+esc(c.text)+'</p>'+(c.url?'<a class="btn" href="'+esc(c.url)+'" target="_blank" rel="noopener">'+esc(c.btn)+' →</a>':(c.btn?'<span class="btn soon">'+esc(c.btn)+'</span>':''))+'</div>').join('')+'</div>':'')+
+ '<ul class="ideas">'+g.ideas.map(i=>'<li>'+i+'</li>').join('')+'</ul><p class="note">'+g.note+'</p>';
+if(t.pairs){const q=t.pairs;$('pairs').innerHTML='<h2>'+q.h2+'</h2><p>'+q.intro+'</p><div class="ptabs">'+q.groups.map((g,k)=>'<button type="button" class="chip" data-g="'+k+'" aria-pressed="'+(k===0)+'">'+esc(g.label)+'</button>').join('')+'</div>'+q.groups.map((g,k)=>'<div class="pairs" data-gp="'+k+'"'+(k?' hidden':'')+'>'+g.cards.map(c=>'<div class="pcard2"><div class="ptop"><img src="img/'+c.img+'" alt="" loading="lazy"><div><span class="eyebrow2">'+esc(c.name)+'</span><b>'+esc(c.sw)+'</b><p>'+c.text+'</p><a class="btn" href="'+esc(c.url)+'" target="_blank" rel="noopener">'+esc(c.btn)+' →</a></div></div><span class="plus">'+esc(q.plus)+'</span><div class="xrow">'+c.extras.map(x=>'<a class="xitem" href="'+esc(x.url)+'" target="_blank" rel="noopener"><img src="img/'+x.img+'" alt="" loading="lazy"><span><small>'+esc(x.brand)+'</small>'+esc(x.name)+'</span></a>').join('')+'</div></div>').join('')+'</div>').join('')+'<p class="note">'+q.note+'</p>';document.querySelectorAll('.ptabs .chip').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.ptabs .chip').forEach(x=>x.setAttribute('aria-pressed',x===btn));document.querySelectorAll('[data-gp]').forEach(p=>p.hidden=p.dataset.gp!==btn.dataset.g);}));}else{$('pairs').remove();}
+if(t.gc){const c=t.gc;$('giftcard').innerHTML='<h3>'+c.h3+'</h3><div class="card"><div class="brand">Slow Shine by Nataly</div><div class="mid"><span class="kicker">'+c.kicker+'</span><h1>'+c.h1+'</h1><p class="desc">'+c.desc+'</p></div><div class="foot"><span>'+c.forL+' <b id="gcTo">____</b> · '+c.fromL+' <b id="gcFrom">____</b></span><span>'+c.foot+'</span></div></div>'+
+'<form class="gcform" id="gcForm" autocomplete="off"><label>'+c.f1+'<input name="to" maxlength="40" required></label><label>'+c.f2+'<input name="from" maxlength="40" required></label>'+(c.f4?'<label class="wide">'+c.f4+'<input name="email" type="email" maxlength="80" required placeholder="name@email.com"></label>':'')+'<label class="wide">'+c.f3+'<input name="contact" maxlength="80" placeholder="'+c.f3ph+'"></label><button class="btn" type="submit">'+c.btn+' →</button></form><p class="gcnote" id="gcNote">'+c.note+'</p><textarea id="gcMsg" class="gcmsg" readonly hidden></textarea>';
+const f=$('gcForm');f.addEventListener('input',()=>{$('gcTo').textContent=f.to.value.trim()||'____';$('gcFrom').textContent=f.from.value.trim()||'____';});
+f.addEventListener('submit',async ev=>{ev.preventDefault();const msg=c.msg.replace('{to}',f.to.value.trim()).replace('{from}',f.from.value.trim()).replace('{contact}',f.contact.value.trim()||'-').replace('{email}',f.email?f.email.value.trim():'');let ok=false;try{await navigator.clipboard.writeText(msg);ok=true;}catch(e){}const ta=$('gcMsg');ta.value=msg;ta.hidden=ok;$('gcNote').innerHTML=ok?c.done:c.manual;window.open(c.dm,'_blank','noopener');});
+}else{$('giftcard').remove();}
+const s=t.shelf;
+$('shelf').innerHTML='<h2>'+s.h2+'</h2><p>'+s.intro+'</p><div class="srow">'+s.items.map(i=>'<'+(i.url?'a href="'+esc(i.url)+'" target="_blank" rel="noopener"':'div')+' class="sitem"><img src="img/'+i.img+'" alt="" loading="lazy"><span>'+esc(i.name)+'<small>'+esc(i.note)+'</small></span></'+(i.url?'a':'div')+'>').join('')+'</div>';
+['honest','care','beauty','deep','people','cta'].forEach(k=>$(k).innerHTML=t[k]);
+$('bookcap').textContent=t.bookcap;$('fine').textContent=t.fine;
+</script>
+
+
+</body>
+</html>
