@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url';
 
 const root = await realpath(fileURLToPath(new URL('../', import.meta.url)));
 const imageRoot = resolve(root, 'img');
+const rootFiles = new Set(['index.html', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.png']);
+const rootFilePaths = new Set([...rootFiles].map(file => resolve(root, file)));
 const port = Number(process.env.PORT || 3000);
 const host = process.env.HOST || '127.0.0.1';
 const types = {
@@ -28,14 +30,14 @@ const server = createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
     const relativePath = pathname === '/' ? 'index.html' : pathname.slice(1);
-    if (relativePath !== 'index.html' && !relativePath.startsWith('img/')) {
+    if (!rootFiles.has(relativePath) && !relativePath.startsWith('img/')) {
       response.writeHead(404);
       response.end('Not found');
       return;
     }
 
     const path = await realpath(resolve(root, relativePath));
-    if (path !== resolve(root, 'index.html') && !path.startsWith(imageRoot + sep)) {
+    if (!rootFilePaths.has(path) && !path.startsWith(imageRoot + sep)) {
       response.writeHead(404);
       response.end('Not found');
       return;

@@ -6,7 +6,9 @@ const output = new URL('dist/', root);
 
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
-await cp(new URL('index.html', root), new URL('index.html', output));
+for (const file of ['index.html', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.png']) {
+  await cp(new URL(file, root), new URL(file, output));
+}
 await cp(new URL('img/', root), new URL('img/', output), { recursive: true });
 
 console.log(`Static site built: ${fileURLToPath(output)}`);
